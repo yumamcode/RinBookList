@@ -4,13 +4,27 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>初めてのSpringBoot</title>
+		<link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet"/>
+		<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet"/>
 	</head>
 	<body>
-		<div th:each="list : ${bookList}">
-			<div>タイトル:<span th:text="${list.title}"></span></div>
-			<div>著者:<span th:text="${list.author}"></span></div>
-			<div>ジャンル:<span th:text="${list.genre}"></span></div>
-			<br/>
-		</div>
+		<diV class="card">
+			<div class="crad-body w-75 mx-auto mt-5">
+				<table id="bookTable" class="table table-sm table-bordered">
+					<thead>
+						<th>タイトル</th>
+						<th>著者</th>
+					</thead>
+					<tbody th:each="list : ${bookList}">
+						<td th:text="${list.title}"></td>
+						<td th:text="${list.author}"></td>
+					</tbody>
+				</table>
+			</div>
+		</diV>
+		<script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
+    	<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+    	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+		<script th:src="@{/js/index.js}"></script>
 	</body>
 </html>
