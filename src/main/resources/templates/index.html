@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>初めてのSpringBoot</title>
+	</head>
+	<body>
+		<div th:each="list : ${bookList}">
+			<div>タイトル:<span th:text="${list.title}"></span></div>
+			<div>著者:<span th:text="${list.author}"></span></div>
+			<div>ジャンル:<span th:text="${list.genre}"></span></div>
+			<br/>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.BooksGenresMapper">
+    <select id="selectAll" resultType="com.example.demo.entity.BooksGenres">
+        select
+        	t1.title
+        	, t1.author
+        	, m1.genre
+        from
+        	trn_books as t1
+        inner join
+        	intersect_books_genres as i1
+        	on t1.id = i1.book_id
+        inner join
+        	mst_genres as m1
+        	on i1.genre_id = m1.id
+    </select>
+</mapper>
