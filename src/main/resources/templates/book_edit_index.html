@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>本追加フォーム</title>
+		<link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet"/>
+		<link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet"/>
+		<link th:href="@{/fas/css/all.min.css}" rel="stylesheet"/>
+	</head>
+	<body>
+		<diV class="card">
+			<div class="crad-body w-75 mx-auto mt-5">
+				<form id="bookEditForm" method="GET">
+					<label for="title"></label>
+					<input type~"text">
+					<label for="author"></label>
+					<input type="text">
+				</form>
+			</div>
+		</diV>
+		<script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
+    	<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+    	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+		<script th:src="@{/js/book_edit_index.js}"></script>
+	</body>
+</html>
