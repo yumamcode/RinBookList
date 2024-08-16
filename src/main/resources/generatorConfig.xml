@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="C:\Users\User\.gradle\caches\modules-2\files-2.1\com.mysql\mysql-connector-j\8.3.0\1cc7fa5d61f4bbc113531a4ba6d85d41cf3d57e1" />
+  <context id="MySQLTables" targetRuntime="MyBatis3">
+
+	<!-- MapperにMapperアノテーションを付与 -->
+	<plugin
+		type="org.mybatis.generator.plugins.MapperAnnotationPlugin" />
+	<!-- equalsおよびhashCodeを自動生成 -->
+	<plugin
+		type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+
+	<!-- コメント生成の抑制 -->
+	<commentGenerator>
+		<property name="suppressDate" value="true" />
+		<property name="addRemarkComments" value="false" />
+	</commentGenerator>
+
+    <!-- スキーマ情報を取得する DB への接続設定 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/rin_book"
+        userId="root"
+        password="">
+    </jdbcConnection>
+
+    <!-- SELECT 結果等を格納するドメインモデルを生成する設定 -->
+    <javaModelGenerator targetPackage="com.example.demo.mybatis.domain" targetProject="RinBookList/src/main/java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <!-- SQL 設定が記述された XML を生成する設定 -->
+    <sqlMapGenerator targetPackage="com.example.demo.mybatis.mapper" targetProject="RinBookList/src/main/resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    <!-- マッパークラスを生成する設定 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.mybatis.mapper" targetProject="RinBookList/src/main/java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <!-- コードを生成するテーブルを指定 -->
+    <table schema="rin_book" tableName="trn_books">
+      <property name="useActualColumnNames" value="true" />
+    </table>
+
+  </context>
+</generatorConfiguration>
