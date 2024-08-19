@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.demo.entity.Book;
 import com.example.demo.form.BookEditForm;
 import com.example.demo.mapper.BookMapper;
+import com.example.demo.mybatis.domain.TrnBooks;
+import com.example.demo.mybatis.mapper.TrnBooksMapper;
 
 @Controller
 public class BookEditController {
@@ -17,11 +18,14 @@ public class BookEditController {
 	@Autowired
 	BookMapper bookMapper;
 	
+	@Autowired
+	TrnBooksMapper autoGenBookMapper;
+	
 	static final String FORM_NAME = "bookEditForm";
 	
 	@GetMapping("/bookEdit/index")
 	public ModelAndView index(ModelAndView mav) {
-		mav.setViewName("book_edit_index");
+		mav.setViewName("book_index");
 		return mav;
 	}
 	
@@ -34,7 +38,7 @@ public class BookEditController {
 	@GetMapping("/bookEdit/updateIndex")
 	public ModelAndView updateIndex(ModelAndView mav,BookEditForm form) {
 		
-		Book book = bookMapper.selectByPrimaryKey(form.getId());
+		TrnBooks book = autoGenBookMapper.selectByPrimaryKey(form.getId());
 		
 		BeanUtils.copyProperties(book,form);
 		

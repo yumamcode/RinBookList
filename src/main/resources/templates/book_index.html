@@ -26,8 +26,14 @@
 						<th>著者</th>
 					</thead>
 					<tbody th:each="list : ${bookList}">
-						<td th:text="${list.title}"></td>
-						<td th:text="${list.author}"></td>
+						<tr th:data-book-id="${list.id}">
+							<td>
+								<button type="button" class="btn btn-link book-title-btn">
+									<span th:text="${list.title}"></span>
+								</button>
+							</td>
+							<td th:text="${list.author}"></td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
